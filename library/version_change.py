@@ -28,20 +28,20 @@ def main():
         "version_no": {"default": True, "type": "str"},
         "version_name": {"default": True, "type": "str"},
         "unchanged_value": {"default": True, "type": "str"}
-    }
+    } # values passed from variables in yml to dictionary
 
-    module = AnsibleModule(argument_spec=fields)
+    module = AnsibleModule(argument_spec=fields) #fields dictionary passed here
     # change the name
-    module.params.update({"version_name": "After"})
+    module.params.update({"version_name": "After"}) # Updating value in dictionary
     # bump minor and patch version
-    mylist = module.params["version_no"].split('.')
-    mylist[2] = str(int(mylist[2]) + 2)
-    mylist[1] = str(int(mylist[1]) + 1)
-    mystr= '.'.join(mylist)
-    module.params.update({"version_no": mystr})
+    mylist = module.params["version_no"].split('.') # splitting values after version_no
+    mylist[2] = str(int(mylist[2]) + 2) # list manipulation
+    mylist[1] = str(int(mylist[1]) + 1) # list manipulation
+    mystr= '.'.join(mylist) # rejoined in new variable 
+    module.params.update({"version_no": mystr}) # updated dict key value with variable
 
     
-    module.exit_json(changed=True, meta=module.params)
+    module.exit_json(changed=True, meta=module.params) # value is returned to command line
 
 
 if __name__ == '__main__':

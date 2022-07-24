@@ -4,8 +4,8 @@
   - name: Test that my module works
     version_change: 
       version_name: "Before"
-      version_no:  1.1.1 
+      version_no:  1.1.1 # value is reflected as dict key in dictionary in python code  
       unchanged_value: "This will pass through"
-    register: result
+    register: result # registered result
 
-  - debug: var=result    
+  - debug: var=result #debugs result   

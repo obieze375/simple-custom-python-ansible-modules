@@ -5,8 +5,8 @@
   tasks:
     - name: Passing Variables
       list:
-        hello: "hello World"
-        ourlist: ['']
+        hello: "hello World" # variable reflected in python code
+        ourlist: [''] # list created and reflected in python code
       register: result
     - name: Printing return
       debug: var=result
